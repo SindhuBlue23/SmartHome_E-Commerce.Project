@@ -1,0 +1,94 @@
+<!DOCTYPE>
+<html>
+<style>
+body{
+background-image: url(https://64.media.tumblr.com/4b2af08a092000e8414fc62e7118c235/9e7f1b0a3f22fe52-b7/s400x600/e7ac62af7f2d4c6944a393af59655f7a1c902160.gifv);
+background-repeat: no-repeat;
+background-size: cover;
+}
+</style>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<head>
+		<meta charset="utf-8">
+		<title>ADD PRODUCTS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/static/css/prodetails.css">
+	</head>
+
+	<body onload="loadTitle()">
+
+		<div class="wrapper">
+
+			<div class="inner">
+				<a  href="link4"> <i class="fa fa-mail-reply" style="font-size:35px;color:yellow"></i></a>
+				<form method="post" action="details" enctype="multipart/form-data">
+               {% csrf_token %}
+
+					<center><h2> Add Product Details </h2></center>
+
+					<br>
+					<br>
+					 <input type="hidden" id="pid" name="pid">
+
+					<label style="color:white"> Supplier Name</label>
+                      <select name="selectedid">
+                         <option selected disabled="true"> </option>
+                         {% for result in suppliers %}
+                         <option value={{result.sid}}> {{result.sname}} </option>
+						 {% endfor %}
+                      </select>
+					<br>
+					<br>
+					<label style="color:white"> Category Name</label>
+                      <select name="selectid">
+                         <option selected disabled="true"> </option>
+                         {% for result in categories %}
+                         <option value={{result.cateid}}> {{result.catname}} </option>
+						 {% endfor %}
+                      </select>
+					<br>
+					<br>
+					<div class="form-wrapper">
+						<label for="pname" class="label-input">Product Name</label>
+						<input type="text" id="pname" name="pname" class="form-control">
+					</div>
+					<br>
+					<div class="form-wrapper">
+						<label for="uistock" class="label-input">Units in Stock</label>
+						<input type="text" id="uistock" name="uistock" class="form-control">
+					</div>
+					<br>
+					<div class="form-wrapper">
+						<label for="price" class="label-input">Price</label>
+						<input type="text" id="price" name="price" class="form-control">
+					</div>
+					<br>
+					<div class="form-wrapper">
+						<label for="description" class="label-comment">Description</label>
+						<textarea id="description" name="description" class="form-control" style="height: 69px"></textarea>
+					</div>
+					<label for="pic1">Select a file:</label>
+                   <input type="file" placeholder="pic1" id="pic1" name="pic1"><br><br>
+					<label for="img2">Select a file:</label>
+                   <input type="file" placeholder="img2" id="img2" name="img2"><br><br>
+					<label for="img3">Select a file:</label>
+                   <input type="file" placeholder="img3" id="img3" name="img3"><br><br>
+					<form action="link5" method="get">
+					<button> ADD </button>
+					</form>
+				</form>
+				<div class="image-holder">
+					<img src="https://lh3.googleusercontent.com/tAytb-lkWjoB2zTS8kXr7rMzndPkUy-9OETWFevKD1WFseKc3ZUHrsdJTxn6qfYF7ZZtomqRlOzKyzaNVcQJ4hUWuQhC3WOTbn8=w830" width="100%" height="100%";>
+				</div>
+			</div>
+		</div>
+
+		<script src="/static/js/jquery-3.3.1.min.js"></script>
+		<script src="/static/js/prodetails.js"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>

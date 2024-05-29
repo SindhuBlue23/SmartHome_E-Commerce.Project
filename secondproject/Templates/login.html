@@ -1,0 +1,84 @@
+<html>
+<style>
+body   { background: url(https://scx2.b-cdn.net/gfx/news/2017/5968ed9360d40.jpg) ;
+background-size:cover;
+background-repeat:no-repeat;
+</style>
+<body>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+
+<div class="form-structor">
+	<form method="post" action="signup">
+    {% csrf_token %}
+	<div class="signup">
+		<h2 class="form-title" id="signup"><span>or</span>SIGNUP</h2>
+        {% for mes in messages %}
+        {{mes}}
+        {% endfor %}
+		<div class="form-holder">
+			<input type="text" class="input" placeholder="User Name" name="userName" required/>
+			<input type="email" class="input" placeholder="Email" name="email" required/>
+			<input type="text" class="input" placeholder="First Name" name="firstName" required/>
+			<input type="text" class="input" placeholder="Last Name" name="lastName" required/>
+			<input type="password" class="input" placeholder="Password" name="password" required/>
+		</div>
+		<button class="submit-btn">Sign up</button>
+	</div>
+	</form>
+	<form method="post" action="login">
+    {% csrf_token %}
+    {% for mes in messages %}
+        {{mes}}
+        {% endfor %}
+	<div class="login slide-up">
+		<div class="center">
+
+			<h2 class="form-title" id="login"><span>or</span>LOGIN</h2>
+
+			<div class="form-holder">
+				<input type="text" class="input" placeholder="username" name="nm" required/>
+				<input type="password" class="input" placeholder="Password" name="password" required/>
+			</div>
+			<button class="submit-btn">Login</button>
+
+			<br>
+
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <a href="link3" class="btn btn-primary">ADMIN LOGIN</a><br><br>
+		</div>
+	</div>
+	</form>
+</div>
+</body>
+<link rel="stylesheet" href="/static/css/loginn.css">
+<script type="text/javascript" src="{{ STATIC_URL }} /static/login.js"></script>
+    <script type="text/javascript">
+	console.clear();
+
+const loginBtn = document.getElementById('login');
+const signupBtn = document.getElementById('signup');
+
+loginBtn.addEventListener('click', (e) => {
+	let parent = e.target.parentNode.parentNode;
+	Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+		if(element !== "slide-up") {
+			parent.classList.add('slide-up')
+		}else{
+			signupBtn.parentNode.classList.add('slide-up')
+			parent.classList.remove('slide-up')
+		}
+	});
+});
+
+signupBtn.addEventListener('click', (e) => {
+	let parent = e.target.parentNode;
+	Array.from(e.target.parentNode.classList).find((element) => {
+		if(element !== "slide-up") {
+			parent.classList.add('slide-up')
+		}else{
+			loginBtn.parentNode.parentNode.classList.add('slide-up')
+			parent.classList.remove('slide-up')
+		}
+	});
+});
+</script>
+</html>

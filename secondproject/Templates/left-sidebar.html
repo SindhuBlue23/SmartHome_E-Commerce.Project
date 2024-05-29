@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Left Sidebar - Landed by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="static/css/main.css" />
+		<noscript><link rel="stylesheet" href="/static/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	</head>
+	<body class="is-preload" onload="loadTitle()">
+	<form method="post" action="left"></form>
+    {% csrf_token %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+				<a  href="index"> <i class="fa fa-mail-reply" style="font-size:35px;color:yellow"></i></a>
+					<nav id="nav">
+						<ul>
+							<li><a href="profile">Profile</a></li>
+							<li>
+								<a href="#">Products</a>
+								<ul>
+									<li><a href="left">Smart TV</a></li>
+									<li><a href="right">Smart Speakers </a></li>
+									<li><a href="light">Smart Light Bulbs</a></li>
+									<li><a href="bell">Smart Door Bells</a></li>
+									<li><a href="switch">Smart Light Switchs</a></li>
+									<li><a href="smoke">Smart Smoke Detector</a></li>
+
+								</ul>
+							</li>
+							<li><a href="cart">Cart</a></li>
+							<li><a href="OrderStatus">Order Status</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2> SMART TV</h2>
+							<p>A Smart TV can access the internet via Wi-Fi,It also have the facility to run apps that come built into the TV.</p>
+						</header>
+						<div class="row gtr-150">
+							<div class="col-4 col-12-medium">
+
+								<!-- Sidebar -->
+									<section id="sidebar">
+										<section>
+											<h3>What can a smart TV do?</h3>
+											<p>Any TV that can be connected to the internet is a smart TV. A user can stream media services and run apps, browse the internet, access internet music channels, shop online, and access on-demand video services.</p>
+											<footer>
+												<form action="link6" method="get" >
+                                                       <input type="hidden" id="ProductType" name="ProductType" value="Smart TV"/>
+													<button id="btnAddProduct" class="button" style="font-size:17px">View Products</button>
+                                                 </form>
+											</footer>
+										</section>
+										<hr />
+										<section>
+											<a href="#" class="image fit"><img src="https://i2.wp.com/www.alphr.com/wp-content/uploads/2017/11/au-feature-uhd-ku6000-60840165.jpg?fit=1440%2C960&ssl=1"></a>
+											<h3>What is a Smart TV ?</h3>
+											<p>A smart TV looks just like a regular television, so what sets it apart?
+												Your smart TV is essentially an LED TV with internet connection and the ability
+												to connect seamlessly to various portable devices.</p>
+											<footer>
+												<ul class="actions">
+													<li><a href="https://www.youtube.com/watch?v=ZfoGBbfhi5M&t=646s" class="button">Video</a></li>
+												</ul>
+											</footer>
+										</section>
+									</section>
+
+							</div>
+							<div class="col-8 col-12-medium imp-medium">
+
+								<!-- Content -->
+									<section id="content">
+											<a href="#" class="image fit"><img src="https://pics.computerbase.de/9/7/0/5/0-38ba3da6fba410f3/article-1280x720.8d11b563.jpg"></a>
+										<h3>Smart TV : Your one-stop Entertainment Hub</h3>
+										<p> A smart TV looks just like a regular television, so what sets it apart? Think of all the things that you do on a daily basis using your smartphone or laptop, such as access streaming services, check your social media feed and surf the Web. With a smart TV, you’ll be able to do this and more on the big screen, thanks to built-in Wi-Fi and Ethernet ports. Your smart TV is essentially an LED TV with internet connection and the ability to connect seamlessly to various portable devices!</p>
+                                        <p></p>
+ 										<h3>Easily Connect your Devices</h3>
+                                        <p>Your smart TV will be able to reproduce whatever you are viewing on your portable device, be it your smartphone or tablet, with ease! What’s more, the Panasonic Bluetooth Audio Link function also allows you to connect to a wireless audio speaker for more immersive sounds via Bluetooth, without the need for complicated set-ups. You could also connect your smartphone or tablet device to the TV to play music on the TV speakers — perfect for a house party!</p>
+
+									</section>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/jquery.scrolly.min.js"></script>
+			<script src="/static/js/jquery.dropotron.min.js"></script>
+			<script src="/static/js/jquery.scrollex.min.js"></script>
+			<script src="/static/js/browser.min.js"></script>
+			<script src="/static/js/breakpoints.min.js"></script>
+			<script src="/static/js/util.js"></script>
+			<script src="/static/js/main.js"></script>
+
+	</body>
+</html>

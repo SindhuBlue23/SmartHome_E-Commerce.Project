@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Bootstrap Template</title>
+	<meta name="description" content="A minimalist Bootstrap theme by StartBootstrap. Contains everything you need to get started building your website. All you have to do is change the text and images.">
+    
+	<link rel="stylesheet" href="/static/css/multiadd.css">
+    <link href="font-awesome.min.css" rel="stylesheet" type="text/css">
+    		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+				<a  href="cart"> <i class="fa fa-mail-reply" style="font-size:35px;color:yellow"></i></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+                <div class="fill" style="background-image:url('https://images.squarespace-cdn.com/content/v1/5b899f9f12b13f368e13e6d5/1536248733603-FJ9BOATR922WCYW60K2S/vivint-smart-home-products-lineup-tight.jpg);"></div>
+    </header>
+<form method="get" action="getCards">
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Select Your Address
+                </h1>
+            </div>
+            <input type="hidden" name="grandtotal" value="{{grandtotal}}">
+            {% for address in addresses %}
+
+            <div class="col-md-4">
+
+                <input type="radio" name="selectedaddress" id="{{address.cusinfoid}}" value="{{address.cusinfoid}}" >
+
+                 <label>{{address.email}}</label>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-check"></i> {{address.phno}}</h4>
+                    </div>
+                    <div class="panel-body">
+                        <p>{{address.address}} <br> {{address.city}}, {{address.country}}</p>
+
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        <button> Select Card </button>
+        <!-- /.row -->
+
+    <!-- jQuery -->
+    <script src="/static/js/multiadd.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap.min.js"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+    </div>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+<style>
+        .btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Orange */
+.warning {
+  color: green;
+}
+
+.warning:hover {
+  background: #ff9800;
+  color: white;
+}
+table, td, th {
+  border: 2px solid purple;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th, td {
+  padding: 15px;
+}
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<a  href="profile"> <i class="fa fa-mail-reply" style="font-size:35px;color:purple"></i></a>
+
+<body ><center>
+
+
+    <ul style="padding-left:400px">
+  <li><a href="manageAddress">Manage Address</a></li>
+</ul>
+    <form action="addCard" method="get">
+    <center><h1 style="color:purple;font-weight:700;">Manage Card</h1>
+
+<button style="width:auto;">+ Add Card</button>
+    </center>
+    </form>
+<div class="container">
+            <div class="tab tab-1">
+                <table id="table" border="1">
+                    <tr bgcolor="pink">
+                           <th style="color:black">Card Name</th>
+                           <th style="color:black">Card Number</th>
+                          <th style="color:black">Expiry Month</th>
+                          <th style="color:black">Expiry Year</th>
+                          <th style="color:black">Cvv</th>
+                          
+                    </tr>
+                    <tr>
+                     {% for bill in billing %}
+                        <td>{{bill.cardname}}</td>
+                        <td>{{bill.cardnum}}</td>
+                        <td>{{bill.expmonth}}</td>
+                        <td>{{bill.expyear}}</td>
+                        <td>{{bill.cvv}}</td>
+                        
+<form action="modifyCard" method="get">
+                        {% csrf_token%}
+     <input type="hidden" name="bId" value="{{bill.bid}}">
+                        <td><button type="submit">Edit</button></td>
+</form>
+<form action="deleteCard" method="post">
+                        {% csrf_token%}
+     <input type="hidden" name="bId" value="{{bill.bid}}">
+                        <td><button>Remove</button></td>
+</form>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+</div>
+</center>
+</body>
+</html>

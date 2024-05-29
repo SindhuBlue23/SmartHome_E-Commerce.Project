@@ -1,0 +1,72 @@
+<html>
+<head>
+<style>
+    body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+
+</style>
+     <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<a  href="manageAddress"> <i class="fa fa-mail-reply" style="font-size:35px;color:purple"></i></a>
+
+<body><center>
+ <ul style="padding-left:400px">
+  <li><a href="manageCard">Manage Card</a></li>
+</ul>
+
+        <br> <br> <br> <br> <br> <br> <br> <br>
+<div class="tab tab-2">
+ <form action="modifyAddress" method="post">
+                        {% csrf_token%}
+    <h2>Email : <input type="text" name="email" id="email" value="{{address.email}}">
+    <br> <br> <br>
+    Address : <input type="text" name="add" id="add" value="{{address.address}}">
+    <br> <br> <br>
+	Phone Number : <input type="text" name="number" id="number" value="{{address.phno}}">
+    <br> <br> <br>
+	Country : <input type="text" name="country" id="country" value="{{address.country}}">
+	<br> <br> <br>
+	City : <input type="text" name="city" id="city" value="{{address.city}}">
+	<br> <br> <br>
+	    
+		
+    <input type="hidden" name="cusinfoId" value="{{address.cusinfoid}}"/>
+                             <input type="submit" value="UPDATE" />
+        <br/>
+         {% for mes in messages %}
+        {{mes}}
+        {% endfor %}
+    </h2>
+           </form>
+            </div>
+</center>
+</body>
+</html>

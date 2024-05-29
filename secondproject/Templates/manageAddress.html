@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+<style>
+        .btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Orange */
+.warning {
+  color: green;
+}
+
+.warning:hover {
+  background: #ff9800;
+  color: white;
+}
+table, td, th {
+  border: 2px solid purple;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th, td {
+  padding: 15px;
+}
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<a  href="profile"> <i class="fa fa-mail-reply" style="font-size:35px;color:purple"></i></a>
+
+<body ><center>
+
+
+    <ul style="padding-left:400px">
+  <li><a href="manageCard">Manage Card</a></li>
+</ul>
+    <form action="addAddress" method="get">
+    <center><h1 style="color:purple;font-weight:700;">Manage Address</h1>
+
+<button style="width:auto;">+ Add Addresses</button>
+    </center>
+    </form>
+<center>
+<div class="container">
+            <div class="tab tab-1">
+                <table id="table" border="1">
+                    <tr bgcolor="pink">
+                           <th style="color:black">Email</th>
+                           <th style="color:black">Phone Number</th>
+                          <th style="color:black">Address</th>
+                          <th style="color:black">Country</th>
+                          <th style="color:black">City</th>
+                          
+                    </tr>
+                    <tr>
+                     {% for cusinfo in cusinfos %}
+                        <td>{{cusinfo.email}}</td>
+                        <td>{{cusinfo.phno}}</td>
+                        <td>{{cusinfo.address}}</td>
+                        <td>{{cusinfo.country}}</td>
+                        <td>{{cusinfo.city}}</td>
+                        
+<form action="modifyAddress" method="get">
+                        {% csrf_token%}
+     <input type="hidden" name="cusinfoId" value="{{cusinfo.cusinfoid}}">
+                        <td><button type="submit">Edit</button></td>
+</form>
+<form action="deleteAddress" method="post">
+                        {% csrf_token%}
+     <input type="hidden" name="cusinfoId" value="{{cusinfo.cusinfoid}}">
+                        <td><button>Remove</button></td>
+</form>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+</div>
+</center>
+</center>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+<style>
+input[type=text]
+{
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+input[name=address]
+{
+  width: 80%;
+  padding: 30px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+select
+{
+  width: 25%;
+  padding: 10px 20px;
+}
+button {
+  background-color: #3395FF;
+  color: black;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  font-weight: 795;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.modal {
+  display: none; 
+  width: 50%;
+  height: 50%;
+  padding-top: 50px;
+  
+}
+.register {
+  	width: 800px;
+  	margin: 10px auto;
+  	padding: 10px;
+  	border: 7px solid $green-border;
+  	border-radius: 15px;
+	  color: purple;
+  	background-color: lightblue;
+  	box-shadow: 0 0 35px 0 purple;
+	}
+</style>
+<style>
+#table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table tr:nth-child(even){background-color: #f2f2f2;}
+
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: orange;
+  color: white;
+}
+</style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body >
+<a  href="index"> <i class="fa fa-mail-reply" style="font-size:35px;color:purple"></i></a>
+<br> <br> <br> <br>
+<center>
+
+    <center><h1 style="color:purple;font-weight:700;">Order Details</h1>
+<center>
+<div class="container">
+            <div class="tab tab-1">
+                <table id="table" border="1">
+                    <tr bgcolor="pink">
+                        <th style="color:black"> Order Number </th>
+                           <th style="color:black">Order Date</th>
+                          <th style="color:black">Shipping Date</th>
+                          <th style="color:black"> Order Status</th>
+                          <th style="color:black">Total Price </th>
+                          
+                    </tr>
+                    <tr>
+                     {% for order in orders %}
+                        <td>{{order.oid}}</td>
+                        <td>{{order.odate}}</td>
+                        <td>{{order.shipdate}}</td>
+                        <td>{{order.ostatus}}</td>
+                        <td>{{order.totalprice}}</td>
+
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+</div>
+</center>
+    </center>
+</center>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+        .btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Orange */
+.warning {
+  color: green;
+}
+
+.warning:hover {
+  background: #ff9800;
+  color: white;
+}
+table, td, th {
+  border: 2px solid purple;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+th, td {
+  padding: 15px;
+}
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+<script>
+		function loadTitle()
+		{
+			var a = document.getElementById('btnAddProduct');
+			var urlParams = new URLSearchParams(window.location.search);
+			var prodType = urlParams.get('ProductType');
+			if(prodType)
+			{
+			a.innerHTML = 'Add '+ urlParams.get('ProductType');
+			}
+
+            $.get('getproducts',function(data){})
+		}
+		function openLeftMenu() {
+  document.getElementById("leftMenu").style.display = "block";
+}
+
+function closeLeftMenu() {
+  document.getElementById("leftMenu").style.display = "none";
+}
+	</script>
+<link rel="stylesheet" href="/static/css/">
+    <script type="text/javascript" src="/static/js/"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+
+</head>
+<body onload="loadTitle()"><center>
+<div class="w3-teal">
+  <button class="w3-button w3-teal w3-xlarge w3-left" onclick="openLeftMenu()">&#9776;</button>
+</div>
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="color:blue" id="leftMenu">
+  <button onclick="closeLeftMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+
+  <label for="ProductType" ><h4> Choose Product </h4></label>
+
+        <form action="link4" method="get" id="ProductType" >
+            {% for category in categories %}
+            <button value="{{category.catname}}" name="ProductType" class="btn warning"> {{category.catname}}</button>
+            {% endfor %}
+        </form>
+
+</div>
+    <ul style="padding-left:400px">
+  <li><a href="/link4">Home</a></li>
+  <li><a href="manageCategories">Manage Categories</a></li>
+  <li><a href="manageSuppliers">Manage Suppliers</a></li>
+  <li><a href="AdminOrderStatus">Manage Orders</a></li>
+    <li><form action="adminlogout" method="get">
+    <button id="logout" class="but" style="background-color: green;margin-left:200px;color:white;">LOGOUT</button>
+    </form></li>
+</ul>
+
+<form action="link5" method="get">
+    <center><h1 style="color:purple;font-weight:600;">Add Products</h1>
+     <button id="btnAddProduct">Add Smart TV</button>
+        </center>
+ </form>
+
+<script>
+function openLeftMenu() {
+  document.getElementById("leftMenu").style.display = "block";
+}
+
+function closeLeftMenu() {
+  document.getElementById("leftMenu").style.display = "none";
+}
+</script>
+</center>
+<center>
+<div class="container">
+            <div class="tab tab-1">
+                <table id="table" border="1">
+                    <tr bgcolor="pink">
+                           <th style="color:black">Product Name</th>
+                           <th style="color:black">Units in Stock</th>
+                           <th style="color:black">Price</th>
+                           <th style="color:black">Description</th>
+                    </tr>
+                    <tr>
+                     {% for product in products %}
+                        <td>{{product.pname}}</td>
+                        <td>{{product.unitsinstock}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.description}}</td>
+<form action="modify" method="get">
+                        {% csrf_token%}
+     <input type="hidden" name="pid" value="{{product.pid}}">
+                        <td><button type="submit">Edit</button></td>
+</form>
+<form action="delete" method="post">
+                        {% csrf_token%}
+     <input type="hidden" name="pid" value="{{product.pid}}">
+                        <td><button>Remove</button></td>
+</form>
+                    </tr>
+                    {% endfor %}
+
+
+
+
+                </table>
+            </div>
+
+
+</div>
+</center>
+</body>
+</html>
+

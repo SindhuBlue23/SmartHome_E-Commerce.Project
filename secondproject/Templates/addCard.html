@@ -1,0 +1,207 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+<style>
+select
+{
+  width: 25%;
+  padding: 10px 20px;
+}
+button {
+  background-color: #3395FF;
+  color: black;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  font-weight: 795;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.modal {
+  display: none;
+  width: 50%;
+  height: 50%;
+  padding-top: 50px;
+
+}
+.register {
+  	width: 800px;
+  	margin: 10px auto;
+  	padding: 10px;
+  	border: 7px solid $green-border;
+  	border-radius: 15px;
+	  color: purple;
+  	background-color: lightblue;
+  	box-shadow: 0 0 35px 0 purple;
+	}
+</style>
+
+<style>
+.btn {
+  border: none;
+  background-color: inherit;
+  width: 100;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {background: #eee;}
+
+.success {color: green;}
+</style>
+<style>
+
+input[type=text], input[type=password] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #3395FF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  font-weight: 790;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.modal {
+  display: none;
+  width: 50%;
+  height: 50%;
+  padding-top: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.register {
+  	width: 500px;
+  	margin: 10px auto;
+  	padding: 10px;
+  	border: 7px solid $green-border;
+  	border-radius: 15px;
+	  color: purple;
+  	background-color: lavender;
+  	box-shadow: 0 0 35px 0 purple;
+	}
+</style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<a  href="manageCard"> <i class="fa fa-mail-reply" style="font-size:35px;color:purple"></i></a>
+
+<body>
+<center>
+<ul style="padding-left:400px">
+  <li><a href="manageAddress">Manage Address</a></li>
+</ul>
+<br> <br>
+<h1>Add Cards</h1>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add</button>
+
+    <form method="post" action="addCard">
+               {% csrf_token %}
+
+        <div id="id01" class="modal">
+   <div class="register">
+      <label style="font-weight: 700;">Credit Card Number</label>
+        <input style="font-weight: 700;" id="cardnumber" type="text" pattern="[0-9]{13,16}" name="cardnumber" requierd="true" maxlength="16" placeholder="0123-4567-8901-2345">
+<br>
+        <label style="font-weight: 700;">Card Holder</label>
+       <input style="font-weight: 700;" id="cardholder" type="text" name="cardname" requierd="true" maxlength="50" placeholder="Cardholder">
+<br>
+        <label style="font-weight: 700;">Expiration Date
+            <select style="font-weight: 700;" name="month" id="month" onchange="" size="1">
+              <option value="00">MM</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+
+            <select style="font-weight: 700;" name="year" id="year" onchange="" size="1">
+              <option value="00">YY</option>
+              <option value="01">16</option>
+              <option value="02">17</option>
+              <option value="03">18</option>
+              <option value="04">19</option>
+              <option value="05">20</option>
+              <option value="06">21</option>
+              <option value="07">22</option>
+              <option value="08">23</option>
+              <option value="09">24</option>
+              <option value="10">25</option>
+            </select>
+			</label>
+
+<br>
+         <label style="font-weight: 700;" id="cvc-label">CVC :</label>
+        <input style="font-weight: 700;" id="cvc" name="cardcvv" type="text" placeholder="Cvc/Cvv" maxlength="3" required pattern="[0-9]{3}"/>
+<br>
+
+		<button> Save </button>
+   </div>
+</div>
+      </form>
+{% for mes in messages %}
+        {{mes}}
+        {% endfor %}
+</center>
+</body>
+</html>

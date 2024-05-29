@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <style>
+body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+    </style>
+
+    <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+
+<style>
+#table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#table tr:nth-child(even){background-color: #f2f2f2;}
+
+#table tr:hover {background-color: #ddd;}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: orange;
+  color: white;
+}
+</style>
+</head>
+<body ><center>
+
+
+    <ul style="padding-left:400px">
+  <li><a href="/link4">Home</a></li>
+  <li><a href="manageCategories">Manage Categories</a></li>
+  <li><a href="manageSuppliers">Manage Suppliers</a></li>
+  <li><a href="AdminOrderStatus">Manage Orders</a></li>
+</ul>
+    <center><h1 style="color:purple;font-weight:700;">Manage Orders</h1>
+
+<center>
+<div class="container">
+            <div class="tab tab-1">
+                <table id="table" border="1">
+                    <tr bgcolor="pink">
+                           <th style="color:black">Order Number</th>
+                           <th style="color:black">Order Date</th>
+                          <th style="color:black">Shipping Date</th>
+                          <th style="color:black">Order Status</th>
+                          <th style="color:black">Total Price</th>
+
+                    </tr>
+                    <tr>
+                     {% for order in orders %}
+                        <td>{{order.oid}}</td>
+                        <td>{{order.odate}}</td>
+                        <td>{{order.shipdate}}</td>
+                        <td>{{order.ostatus}}</td>
+                        <td>{{order.totalprice}}</td>
+
+
+                        
+<form action="modifyOrder" method="get">
+                        {% csrf_token%}
+     <input type="hidden" name="oId" value="{{order.oid}}">
+                        <td><button type="submit">Edit</button></td>
+</form>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+</div>
+</center>
+    </center>
+</center>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html>
+<head>
+<style>
+    body {background-image:url("https://wallpaperaccess.com/full/1732235.jpg");
+background-size:cover;
+background-repeat:no-repeat;
+
+</style>
+     <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: blue;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: pink;
+  color:black;
+}
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    <a  href="manageSuppliers"> <i class="fa fa-mail-reply" style="font-size:35px;color:purple"></i></a>
+
+<body><center>
+ <ul style="padding-left:400px">
+  <li><a href="/link4">Home</a></li>
+  <li><a href="manageCategories">Manage Categories</a></li>
+  <li><a href="manageSuppliers">Manage Suppliers</a></li>
+</ul>
+
+        <br> <br> <br> <br> <br> <br> <br> <br>
+<div class="tab tab-2">
+ <form action="modifySupplier" method="post">
+                        {% csrf_token%}
+    <h2>Supplier Name : <input type="text" name="sname" id="sname" value="{{supplier.sname}}">
+    <br> <br> <br>
+    Supplier Email : <input type="text" name="semail" id="semail" value="{{supplier.semail}}">
+    <br> <br> <br>
+         Supplier Phone Number : <input type="text" name="sphno" id="sphno" value="{{supplier.sphno}}">
+    <br> <br> <br>
+    <input type="hidden" name="sid" value="{{supplier.sid}}"/>
+                             <input type="submit" value="UPDATE" />
+        <br/>
+         {% for mes in messages %}
+        {{mes}}
+        {% endfor %}
+           </form>
+            </div>
+</center>
+</body>
+</html>
